@@ -23,6 +23,12 @@
           &amp;
           {{ siteIcp }}
         </a>
+        <!-- 公安备案 -->
+        <a v-if="siteGONGAN" href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" class="hidden">
+          &nbsp;&nbsp;
+          <!-- <img src="https://img.101jc.com/img/gongan.png" alt="公安图标" style="width:14px;height:14px;"> -->
+          {{ siteGONGAN }}
+        </a>        
       </div>
       <div v-else class="lrc">
         <Transition name="fade" mode="out-in">
@@ -48,10 +54,11 @@ const fullYear = new Date().getFullYear();
 // 加载配置数据
 const siteStartDate = ref(import.meta.env.VITE_SITE_START);
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+const siteGONGAN = ref(import.meta.env.VITE_SITE_GONGAN);
 const siteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "https://www.imsyy.top";
+  if (!url) return "https://www.genson.fun";
   // 判断协议前缀
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     return "//" + url;
